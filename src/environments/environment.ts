@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://bioup.herokuapp.com/api/v1'
+  apiUrl: 'https://bioup.herokuapp.com/api/v1'
  //apiUrl: 'http://localhost:4000'
 };
 
