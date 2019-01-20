@@ -1,19 +1,105 @@
 ﻿<!-- nav -->
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
-    <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="/">Home</a>
-        <a class="nav-item nav-link" (click)="logout()">Logout</a>
-    </div>
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0" *ngIf="currentUser">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/">Nome APP</a>
+    <!--<input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">-->
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" href="#" (click)="logout()">Sign out</a>
+        </li>
+    </ul>
 </nav>
 
-<!-- main app container -->
-<div class="jumbotron">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6 offset-sm-3">
-                <alert></alert>
-                <router-outlet></router-outlet>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar" *ngIf="currentUser">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        Olá,
+                        <a class="nav-link active" href="#">
+                            {{currentUser.nome}}
+                        </a> !
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Conta de Usuario
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Perfil
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Contatos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Dependentes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Permissões
+                        </a>
+                    </li>
+                </ul>
+
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Base de dados</span>
+                    <a class="d-flex align-items-center text-muted" href="#">
+                        <span data-feather="plus-circle"></span>
+                    </a>
+                </h6>
+                <ul class="nav flex-column mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Usuarios
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Perfis
+                        </a>
+                        <ul class="dropdown-menu">
+                            <a class="dropdown-item nav-link" href="#">Pessoal</a>
+                            <a class="dropdown-item nav-link" href="#">Profissional</a>
+                            <a class="dropdown-item nav-link" href="#">Instituições</a>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Doenças
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Alergias
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Medicamento
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <!-- main app container -->
+            <div class="jumbotron">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 offset-sm-3">
+                            <alert></alert>
+                            <router-outlet></router-outlet>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
 </div>
