@@ -105,7 +105,7 @@
                             <a class="nav-link" href="#"><i class="fa fa-support prefix grey-text"></i>Suporte</a>
                         </li>
                         <li class="nav-item active" *ngIf="currentUser">
-                            <a class="nav-link" href="#"><i class="fa fa-sign-out prefix grey-text"></i>Sair</a>
+                            <a class="nav-link" href="#" (click)="logout()"><i class="fa fa-sign-out prefix grey-text"></i>Sair</a>
                         </li>
                     </ul>
                 </div>
