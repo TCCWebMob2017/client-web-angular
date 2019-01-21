@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // used to create fake backend
-import { fakeBackendProvider } from './_helpers';
+//import { fakeBackendProvider } from './_helpers';
 
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
@@ -15,12 +15,16 @@ import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
 
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
 @NgModule({
     imports: [
         BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
-        routing
+        routing,
+        MDBBootstrapModule.forRoot()
     ],
     declarations: [
         AppComponent,
@@ -36,7 +40,8 @@ import { RegisterComponent } from './register';
         // provider used to create fake backend
        // fakeBackendProvider
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    schemas: [ NO_ERRORS_SCHEMA ]
 })
 
 export class AppModule { }

@@ -1,105 +1,120 @@
-﻿<!-- nav -->
+﻿<!-- nav
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0" *ngIf="currentUser">
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/">Nome APP</a>
-    <!--<input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">-->
+    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" href="#" (click)="logout()">Sign out</a>
+            <a class="nav-link" href="#" (click)="logout()"> {{currentUser.nome}} Sign out</a>
         </li>
     </ul>
-</nav>
+</nav> -->
 
-<div class="container-fluid">
-    <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar" *ngIf="currentUser">
-            <div class="sidebar-sticky">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        Olá,
-                        <a class="nav-link active" href="#">
-                            {{currentUser.nome}}
-                        </a> !
+<div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar" *ngIf="currentUser">
+        <div class="sidebar-header">
+            <h3>APP LINDO</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <p>{{currentUser.nome}}</p>
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fa fa-user prefix"> </i> Perfil</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a href="#"> <i class="fas fa-file-medical-alt prefix"></i> Minha Ficha Médica</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Conta de Usuario
-                        </a>
+                    <li>
+                        <a href="#"><i class="fa fa-child prefix"></i> Perfis de Dependentes</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Perfil
-                        </a>
+                    <li>
+                        <a href="#"> <i class="fa fa-user-md prefix"></i> Meu Perfil Profissional</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Contatos
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Dependentes
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Permissões
-                        </a>
+                    <li>
+                        <a href="#"> <i class="fas fa-hospital prefix"></i> Perfis de Organizações</a>
                     </li>
                 </ul>
-
-                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                    <span>Base de dados</span>
-                    <a class="d-flex align-items-center text-muted" href="#">
-                        <span data-feather="plus-circle"></span>
-                    </a>
-                </h6>
-                <ul class="nav flex-column mb-2">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Usuarios
-                        </a>
+            </li>
+            <li>
+                <a href="#"><i class="fas fa-bell prefix"></i> Alertas</a>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-user-friends prefix"></i> Grupos e Contatos</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a href="#">Emergência</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Perfis
-                        </a>
-                        <ul class="dropdown-menu">
-                            <a class="dropdown-item nav-link" href="#">Pessoal</a>
-                            <a class="dropdown-item nav-link" href="#">Profissional</a>
-                            <a class="dropdown-item nav-link" href="#">Instituições</a>
-                        </ul>
+                    <li>
+                        <a href="#">Familiares</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Doenças
-                        </a>
+                    <li>
+                        <a href="#">Amigos</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Alergias
-                        </a>
+                    <li>
+                        <a href="#">Profissionais de Saúde</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Medicamento
-                        </a>
+                    <li>
+                        <a href="#">Instituições</a>
                     </li>
                 </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fas fa-chart-line prefix"></i> Gráficos</a>
+            </li>
+            <li>
+                <a href="#"><i class="fas fa-user-cog prefix"></i> Configurações</a>
+            </li>
+        </ul>
+
+        <ul class="list-unstyled CTAs">
+            <li>
+                <a href="#" class="download"> <i class="fas fa-download prefix"></i> Baixar Dados</a>
+            </li>
+            <li>
+                <a href="#" class="article"> <i class="fas fa-paper-plane prefix"></i> Compartilhar</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Page Content Holder -->
+    <div id="content">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="navbar-btn" *ngIf="currentUser">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fa fa-align-justify"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa fa-info prefix grey-text"></i> Termos de Uso</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa fa-question prefix grey-text"></i>FAQ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa fa-support prefix grey-text"></i>Suporte</a>
+                        </li>
+                        <li class="nav-item active" *ngIf="currentUser">
+                            <a class="nav-link" href="#"><i class="fa fa-sign-out prefix grey-text"></i>Sair</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
 
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-            <!-- main app container -->
-            <div class="jumbotron">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6 offset-sm-3">
-                            <alert></alert>
-                            <router-outlet></router-outlet>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <main role="main">
+            <alert></alert>
+            <router-outlet></router-outlet>
         </main>
     </div>
 </div>

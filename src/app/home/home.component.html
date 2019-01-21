@@ -1,14 +1,11 @@
-﻿<h1>Hi {{currentUser.nome}}!</h1>
-<p>You're logged in with Angular 7!!</p>
-<h3>All registered users:</h3>
+﻿
+<h1>Olá, {{currentUser.nome}}!</h1>
+Lista de users
 <ul class="demo-list-item mdl-list">
-    <li *ngFor="let user of users" class="mdl-list__item"> 
+    <li *ngFor="let user of users" >
         <span class="mdl-list__item-primary-content">
-        {{user.nome}} {{user.telefone}}<br/>
-        {{user.cpf}} <br/>
-        {{user.email}} 
-        
-        <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
-    </span>
+            {{user.nome}} {{user.telefone}}<br />
+            {{user.cpf}} <button (click)="deleteUser(user.id)" class="text-danger">Delete</button>
+        </span>
     </li>
 </ul>
